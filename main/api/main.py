@@ -38,6 +38,11 @@ def health_check():
     """Simple verification that the API server is alive."""
     return {"status": "online", "message": "News Credibility API is running. Access /docs for swagger GUI."}
 
+@app.head("/", tags=["Health"])
+def health_check_head():
+    """HEAD endpoint for uptime monitoring."""
+    return {}
+
 if __name__ == "__main__":
     logger_api.info(f"Starting API server on {API_HOST}:{API_PORT}")
     uvicorn.run(
