@@ -1,0 +1,38 @@
+# ─── OS / IDE ──────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ─── Python ────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+
+# ─── Virtual environments ──────────────────────
+venv/
+env/
+.venv/
+
+# ─── Secrets ───────────────────────────────────
+.env
+*.env.local
+
+# ─── Logs ──────────────────────────────────────
+logs/
+*.log
+
+# ─── Temp / scratch ────────────────────────────
+tmp_*/
+*.tmp
+
+
+main/data/chroma_db/
+main/data/history.db
+main/data/fact_check/liar_dataset/*.tsv
+
+.devcontainer
+.streamlit
+RENDER_CHECKLIST.md
+RENDER_DEPLOYMENT.md
