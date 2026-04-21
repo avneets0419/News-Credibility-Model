@@ -3,20 +3,18 @@ services:
     name: intelligent-news-credibility-api
     runtime: python
     region: oregon
+    pythonVersion: "3.11.9"
 
     # Build Configuration
     # Render now automatically installs root requirements.txt.
     # We only need to download NLTK data.
     buildCommand: |
-      python -m pip install --upgrade pip setuptools wheel && \
+      pip install -r requirements.txt && \
       python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('punkt_tab')"
 
     # Start Command
     # Standard Gunicorn setup for FastAPI in a monorepo.
     startCommand: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main.api.main:app --bind 0.0.0.0:$PORT
-
-    # Python Version
-    pythonVersion: 3.11
 
     # Environment Variables
     envVars:
